@@ -1,2 +1,2 @@
 # nodejs-chat
-Simple Web Chat with NodeJS + Socket + Express
+Simple Web Chat with NodeJS + SocketIO +Express

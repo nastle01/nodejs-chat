@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en>">
+    <head>
+        <title></title>
+        <style>
+            *{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: lightblue;
+                font-family: Copperplate, Papyrus, fantasy;
+                color: rgb(93, 167, 231);
+                }
+               
+
+            .n {
+                width: 30%;
+                padding: 12px 20px;
+                margin: 8px 10px;
+                box-sizing: border-box;
+                border-radius: 20px;
+                background-color: rgb(184, 184, 184);
+                font-family: Copperplate, Papyrus, fantasy;
+                color: rgb(20, 76, 124);
+
+            }
+            button {
+                padding: 12px 20px;
+                background-color: rgb(48, 241, 0);
+                border-radius: 20px;
+                color: rgb(61, 60, 60);
+                font-family: Copperplate, Papyrus, fantasy;
+            }
+            .show {
+                font-size: 80px;
+                color: #ffc78e;
+                font-family: Copperplate, Papyrus, fantasy;
+            }
+        </style>
+    </head>
+    <body>
+        <ul></ul>
+        <center><form id="form" action  ="">
+            <input class="n" id="input" /><button onclick="myFunction()">Send</button>
+        </form>
+        <div id="show" class="show"></div></center>
+
+        <script>
+        function myFunction() {
+          var x = document.getElementById("show");
+          if (x.innerHTML === "") {
+            x.innerHTML = input.value;
+          } else {
+            x.innerHTML = input.value;
+          }
+        }
+        </script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io(); 
+
+            var form = document.getElementById("form");
+            var input = document.getElementById("input");
+
+            form.addEventListener('submit',function(e) {
+                e.preventDefault();
+                if (input.value) {
+                    socket.emit('chat message', input.value);
+                    input.value = '';
+                }
+            } );
+
+        </script>
+    </body>
+</html>
